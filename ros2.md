@@ -52,7 +52,7 @@ VMware17：<https://www.aliyundrive.com/s/quVKXGzbBzJ>
 	$ sudo apt upgrade
 	$ sudo apt install ros-humble-desktop
 
-###4.设置环境变量
+### 4.设置环境变量
 	$ source /opt/ros/humble/setup.bash
 	$ echo " source /opt/ros/humble/setup.bash" >> ~/.bashrc 
 
