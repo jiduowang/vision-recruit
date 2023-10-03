@@ -1,4 +1,4 @@
-#引言
+# 引言
 机器人的发展横跨七八十年，经历了三个重要时期。
 
 
@@ -11,7 +11,7 @@
 智能机器人的快速发展，必将对机器人开发提出更高的要求，软件层面最为热点的技术之一就是机器人操作系统，这也是我们课程的主角——Robot Operating System（即ROS）。
 
 ---
-#ROS2安装方法
+# ROS2安装方法
 
 目前来讲，Linux发展迅猛，已经成为了性能稳定的多用户操作系统，也是ROS2依赖的重要底层系统。虽然ROS2目前也支持Windows、MacOS，但对Linux系统的支持最好，在本教程中，我们主要讲解Linux之上的ROS2使用方法，其他系统原理也基本相同。
 
@@ -29,9 +29,9 @@ VMware17：<https://www.aliyundrive.com/s/quVKXGzbBzJ>
 具体安装可自行到CSDN查看
 推荐安装配置：硬盘30G，内存4G，处理器数量2， 每个处理器的核心数4， 请视个人电脑情况安装，后续可以调整
 
-##接下来，我们就可以把ROS2安装到Ubuntu系统中了。安装步骤如下：
+## 接下来，我们就可以把ROS2安装到Ubuntu系统中了。安装步骤如下：
 
-###1.设置编码
+### 1.设置编码
 
 
 	$ sudo apt update && sudo apt install locales
@@ -40,14 +40,14 @@ VMware17：<https://www.aliyundrive.com/s/quVKXGzbBzJ>
 	$ export LANG=en_US.UTF-8
 
 
-###2.添加源
+### 2.添加源
 	$ sudo apt update && sudo apt install curl gnupg lsb-release 
 	$ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg 
 	$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(source /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
 如遇报错“Failed to connect to raw.githubusercontent.com”，可参https://www.guyuehome.com/37844
 
-###3.安装ROS2
+### 3.安装ROS2
 	$ sudo apt update
 	$ sudo apt upgrade
 	$ sudo apt install ros-humble-desktop
@@ -57,23 +57,23 @@ VMware17：<https://www.aliyundrive.com/s/quVKXGzbBzJ>
 	$ echo " source /opt/ros/humble/setup.bash" >> ~/.bashrc 
 
 ---
-#ROS2开发环境配置
-###Git
+# ROS2开发环境配置
+### Git
 git是一个版本管理软件，也是因Linux而生。
 	$ sudo apt install git
 
-###VScode
+### VScode
 下载链接：<https://code.visualstudio.com/Download>  
 
 插件配置：中文语言包、python插件、c++插件、CMake、vscode-icons、ROS、Msg Language Support、 Visual Studio IntelliCode、URDF、Markdown All in One
 
 ---
-#工作空间
-###创建工作空间：
+# 工作空间
+### 创建工作空间：
 	$ mkdir -p ~/dev_ws/src	
 	$ cd ~/dev_ws/src
 
-###自动安装依赖：
+### 自动安装依赖：
 	$ sudo apt install -y python3-pip
 	$ sudo pip3 install rosdepc
 	$ sudo rosdepc init
@@ -81,12 +81,12 @@ git是一个版本管理软件，也是因Linux而生。
 	$ cd ..
 	$ rosdepc install -i --from-path src --rosdistro humble -y
 
-###编译工作空间：
+### 编译工作空间：
 	$ sudo apt install python3-colcon-ros
 	$ cd ~/dev_ws/
 	$ colcon build
 
-###设置环境变量：
+### 设置环境变量：
 	$ source install/local_setup.sh # 仅在当前终端生效
 	$ echo " source ~/dev_ws/install/local_setup.sh" >> ~/.bashrc # 所有终端均生效
 
